@@ -9,8 +9,10 @@ class Api::V1::ProductsController < ApplicationController
 
   def create
   	@product = Product.new(product_params)
-  	@product.save
+  	if @product.save
   	render json: @product, status: :created
+    else
+    render json: @product.errors.messages, status: 422	
   end
 
 
