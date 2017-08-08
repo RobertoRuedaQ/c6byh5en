@@ -1,3 +1,3 @@
-json.array! @products do |user|
-  json.(user, :id, :name, :price, :timestamps)
+json.array! @products do |product|
+  json.(product, :id, :name, :price, :timestamps)
 end
