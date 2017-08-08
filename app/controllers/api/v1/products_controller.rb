@@ -8,7 +8,8 @@ class Api::V1::ProductsController < ApplicationController
   
 
   def create
-  	@product = Product.new(params[product_params])
+  	@product = Product.new(product_params)
+  	@product.save
   	render json: @product, status: :created
   end
 
