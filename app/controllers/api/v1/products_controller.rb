@@ -12,7 +12,8 @@ class Api::V1::ProductsController < ApplicationController
   	if @product.save
   	render json: @product, status: :created
     else
-    render json: @product.errors.messages, status: 422	
+    render json: @product.errors.messages, status: 422
+    end	
   end
 
 
