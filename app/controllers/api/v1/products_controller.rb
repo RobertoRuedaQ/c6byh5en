@@ -29,7 +29,7 @@ class Api::V1::ProductsController < ApplicationController
     def destroy
       @product = Product.find(params[:id])
       if @product.destroy
-      status: :no_content
+      status: 204
       end
     end
 
