@@ -2,10 +2,10 @@ class Api::V1::ProductsController < ApplicationController
 
   def index
     @products = Product.all
-  
+
   render json: @products, status: :ok
   end
-  
+
 
   def create
   	@product = Product.new(product_params)
@@ -13,9 +13,24 @@ class Api::V1::ProductsController < ApplicationController
   	render json: @product, status: :created
     else
     render json: @product.errors.messages, status: 422
-    end	
+    end
   end
 
+  def update
+      @product = Product.find(params[:id])
+      @product.update(products_params)
+      if @product.valid?
+        render json: @product, status: :ok
+      else
+      render json: @product.errors.messages, status: 422
+      end
+    end
+
+    def destroy
+      @product = Product.find(params[:id])
+      @product.destroy
+      return status: 204
+    end
 
   private
 
