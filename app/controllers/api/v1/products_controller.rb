@@ -18,7 +18,7 @@ class Api::V1::ProductsController < ApplicationController
 
   def update
       @product = Product.find(params[:id])
-      @product.update(products_params)
+      @product.update(product_params)
       if @product.valid?
         render json: @product, status: :ok
       else
